@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preference/ui/home_view.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -10,6 +12,15 @@ class LoginView extends StatefulWidget {
 class _LoginViewState extends State<LoginView> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  String userEmail = '';
+
+  void logIn(String email, String password) async {
+    SharedPreferences sp = await SharedPreferences.getInstance();
+    sp.setString('email', email);
+    sp.setString('password', password);
+    sp.setBool('isLogin', true);
+    userEmail = sp.getString('email') ?? '';
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +71,13 @@ class _LoginViewState extends State<LoginView> {
             ),
             GestureDetector(
               onTap: () {
-                print('login');
+                setState(() {
+                  logIn(emailController.text, passwordController.text);
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: ((context) => const HomeView())));
+                });
               },
               child: Container(
                 height: 50,
@@ -77,7 +94,25 @@ class _LoginViewState extends State<LoginView> {
                       fontSize: 20.0),
                 )),
               ),
-            )
+            ),
+            const SizedBox(
+              height: 30.0,
+            ),
+            Container(
+              height: 50,
+              width: 300,
+              decoration: BoxDecoration(
+                  color: Colors.grey,
+                  borderRadius: BorderRadius.circular(10.0)),
+              child: Center(
+                  child: Text(
+                userEmail,
+                style: const TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20.0),
+              )),
+            ),
           ],
         ),
       )),
