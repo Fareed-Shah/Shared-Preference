@@ -28,6 +28,9 @@ class _SingUpViewState extends State<SingUpView> {
       appBar: AppBar(
         title: const Text('Sign Up'),
         centerTitle: true,
+        backgroundColor: Colors.green
+      
+        
       ),
       body: SafeArea(
           child: Padding(
