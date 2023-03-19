@@ -10,11 +10,29 @@ class AdminView extends StatefulWidget {
 }
 
 class _AdminViewState extends State<AdminView> {
+  String userType = '', userEmail = '';
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    loadData();
+  }
+
   void logOut() async {
     SharedPreferences sp = await SharedPreferences.getInstance();
     sp.clear();
     Navigator.pushReplacement(
         context, MaterialPageRoute(builder: ((context) => const LoginView())));
+  }
+
+  loadData() async {
+    SharedPreferences sp = await SharedPreferences.getInstance();
+
+    setState(() {
+      userType = sp.getString('type') ?? '';
+      userEmail = sp.getString('email') ?? '';
+    });
   }
 
   @override
@@ -31,8 +49,23 @@ class _AdminViewState extends State<AdminView> {
           ),
         ],
       ),
-      body: const Center(
-        child: Text('Admin'),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text(
+              userType.toString(),
+              style:
+                  const TextStyle(fontWeight: FontWeight.bold, fontSize: 25.0),
+            ),
+            Text(
+              userEmail.toString(),
+              style:
+                  const TextStyle(fontWeight: FontWeight.bold, fontSize: 25.0),
+            ),
+          ],
+        ),
       ),
     );
   }
