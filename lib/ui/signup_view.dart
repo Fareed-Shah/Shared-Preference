@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preference/ui/admin_view.dart';
-import 'package:shared_preference/ui/home_view.dart';
 import 'package:shared_preference/ui/student_view.dart';
 import 'package:shared_preference/ui/teacher_view.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -41,16 +40,24 @@ class _SignUpViewState extends State<SignUpView> {
             TextFormField(
               controller: emailController,
               decoration: InputDecoration(
-                  focusColor: Colors.grey,
+                  fillColor: Colors.green,
                   filled: true,
-                  prefixIcon: const Icon(Icons.email),
+                  prefixIcon: const Icon(
+                    Icons.email,
+                    color: Colors.white,
+                    size: 20.0,
+                  ),
                   hintText: 'Email',
+                  hintStyle: const TextStyle(
+                      fontSize: 15.0,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold),
                   focusedBorder: OutlineInputBorder(
                       borderSide: const BorderSide(color: Colors.orange),
-                      borderRadius: BorderRadius.circular(10.0)),
+                      borderRadius: BorderRadius.circular(15.0)),
                   enabledBorder: OutlineInputBorder(
                       borderSide: const BorderSide(color: Colors.green),
-                      borderRadius: BorderRadius.circular(10.0))),
+                      borderRadius: BorderRadius.circular(15.0))),
             ),
             const SizedBox(
               height: 10.0,
@@ -58,23 +65,50 @@ class _SignUpViewState extends State<SignUpView> {
             TextFormField(
               controller: passwordController,
               decoration: InputDecoration(
-                  focusColor: Colors.grey,
+                  fillColor: Colors.green,
                   filled: true,
-                  prefixIcon: const Icon(Icons.password),
+                  prefixIcon: const Icon(
+                    Icons.remove_red_eye,
+                    color: Colors.white,
+                    size: 20.0,
+                  ),
                   hintText: 'Password',
+                  hintStyle: const TextStyle(
+                      fontSize: 15.0,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold),
                   focusedBorder: OutlineInputBorder(
                       borderSide: const BorderSide(color: Colors.orange),
-                      borderRadius: BorderRadius.circular(10.0)),
+                      borderRadius: BorderRadius.circular(15.0)),
                   enabledBorder: OutlineInputBorder(
                       borderSide: const BorderSide(color: Colors.green),
-                      borderRadius: BorderRadius.circular(10.0))),
+                      borderRadius: BorderRadius.circular(15.0))),
             ),
             const SizedBox(
               height: 30.0,
             ),
             DropdownButtonFormField(
-                decoration: const InputDecoration(
-                    fillColor: Colors.green, filled: true),
+                // borderRadius: BorderRadius.circular(30.0),
+                hint: const Text(
+                  'Select Item From List',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 15.0),
+                ),
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+                decoration: InputDecoration(
+                    fillColor: Colors.green,
+                    filled: true,
+                    enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15.0),
+                        borderSide: const BorderSide(color: Colors.grey)),
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15.0),
+                        borderSide: const BorderSide(color: Colors.grey))),
                 iconEnabledColor: Colors.green,
                 dropdownColor: Colors.green,
                 items: [
