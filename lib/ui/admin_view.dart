@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preference/ui/login_view.dart';
+import 'package:shared_preference/ui/signup_view.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AdminView extends StatefulWidget {
@@ -23,7 +24,7 @@ class _AdminViewState extends State<AdminView> {
     SharedPreferences sp = await SharedPreferences.getInstance();
     sp.clear();
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: ((context) => const LoginView())));
+        context, MaterialPageRoute(builder: ((context) => const SignUpView())));
   }
 
   loadData() async {
