@@ -28,6 +28,7 @@ class _LoginViewState extends State<LoginView> {
       appBar: AppBar(
         title: const Text('Login Screen'),
         centerTitle: true,
+        backgroundColor: Colors.green,
       ),
       body: SafeArea(
           child: Padding(

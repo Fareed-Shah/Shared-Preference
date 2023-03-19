@@ -31,6 +31,9 @@ class _TeacherViewState extends State<TeacherView> {
           ),
         ],
       ),
+      body: const Center(
+        child: Text('Teacher'),
+      ),
     );
   }
 }

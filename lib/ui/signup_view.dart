@@ -26,12 +26,9 @@ class _SingUpViewState extends State<SingUpView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Sign Up'),
-        centerTitle: true,
-        backgroundColor: Colors.green
-      
-        
-      ),
+          title: const Text('Sign Up'),
+          centerTitle: true,
+          backgroundColor: Colors.green),
       body: SafeArea(
           child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 15.0),
@@ -72,29 +69,35 @@ class _SingUpViewState extends State<SingUpView> {
             const SizedBox(
               height: 30.0,
             ),
-            DropdownButtonFormField(items: [
-              DropdownMenuItem(
-                value: 1,
-                onTap: () {
-                  userType = 'Admin';
-                },
-                child: const Text('Admin'),
-              ),
-              DropdownMenuItem(
-                value: 2,
-                onTap: () {
-                  userType = 'Teacher';
-                },
-                child: const Text('Teacher'),
-              ),
-              DropdownMenuItem(
-                value: 3,
-                onTap: () {
-                  userType = 'Student';
-                },
-                child: const Text('Student'),
-              )
-            ], onChanged: (ValueKey) {}),
+            DropdownButtonFormField(
+                decoration: const InputDecoration(
+                    fillColor: Colors.green, filled: true),
+                iconEnabledColor: Colors.green,
+                dropdownColor: Colors.green,
+                items: [
+                  DropdownMenuItem(
+                    value: 1,
+                    onTap: () {
+                      userType = 'Admin';
+                    },
+                    child: const Text('Admin'),
+                  ),
+                  DropdownMenuItem(
+                    value: 2,
+                    onTap: () {
+                      userType = 'Teacher';
+                    },
+                    child: const Text('Teacher'),
+                  ),
+                  DropdownMenuItem(
+                    value: 3,
+                    onTap: () {
+                      userType = 'Student';
+                    },
+                    child: const Text('Student'),
+                  )
+                ],
+                onChanged: (ValueKey) {}),
             const SizedBox(
               height: 30.0,
             ),
