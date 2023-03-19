@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preference/ui/admin_view.dart';
 import 'package:shared_preference/ui/home_view.dart';
+import 'package:shared_preference/ui/student_view.dart';
+import 'package:shared_preference/ui/teacher_view.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class SingUpView extends StatefulWidget {
-  const SingUpView({super.key});
+class SignUpView extends StatefulWidget {
+  const SignUpView({super.key});
 
   @override
-  State<SingUpView> createState() => _SingUpViewState();
+  State<SignUpView> createState() => _SignUpViewState();
 }
 
-class _SingUpViewState extends State<SingUpView> {
+class _SignUpViewState extends State<SignUpView> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   String userType = '';
@@ -106,10 +109,23 @@ class _SingUpViewState extends State<SingUpView> {
                 setState(() {
                   onSignUp(
                       emailController.text, passwordController.text, userType);
-                  Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                          builder: ((context) => const HomeView())));
+
+                  if (userType == 'Teacher') {
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: ((context) => const TeacherView())));
+                  } else if (userType == 'Admin') {
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: ((context) => const AdminView())));
+                  } else {
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: ((context) => const StudentView())));
+                  }
                 });
               },
               child: Container(
