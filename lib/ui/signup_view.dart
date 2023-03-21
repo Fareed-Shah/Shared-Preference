@@ -85,7 +85,7 @@ class _SignUpViewState extends State<SignUpView> {
                       borderRadius: BorderRadius.circular(15.0))),
             ),
             const SizedBox(
-              height: 30.0,
+              height: 10.0,
             ),
             DropdownButtonFormField(
                 // borderRadius: BorderRadius.circular(30.0),

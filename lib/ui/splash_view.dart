@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:shared_preference/ui/admin_view.dart';
 import 'package:shared_preference/ui/login_view.dart';
+import 'package:shared_preference/ui/signup_view.dart';
 import 'package:shared_preference/ui/student_view.dart';
 import 'package:shared_preference/ui/teacher_view.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -46,7 +47,7 @@ class _SplashViewState extends State<SplashView> {
     } else {
       Timer(const Duration(seconds: 5), () {
         Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: ((context) => const LoginView())));
+            MaterialPageRoute(builder: ((context) => const SignUpView())));
       });
     }
   }
